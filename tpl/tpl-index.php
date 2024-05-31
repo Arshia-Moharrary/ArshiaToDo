@@ -20,12 +20,18 @@
                     </div>
                 </div>
                 <div class="menu">
-                    <div class="title">Navigation</div>
+                    <div class="title">Folders</div>
                     <ul>
-                        <li> <i class="fa fa-home"></i>Home</li>
-                        <li><i class="fa fa-signal"></i>Activity</li>
-                        <li class="active"> <i class="fa fa-tasks"></i>Manage Tasks</li>
-                        <li> <i class="fa fa-envelope"></i>Messages</li>
+                        <?php foreach ($folders as $folder) : ?>
+                            <a href='?folder_id=<?= $folder->id ?>' class="folder">
+                            <li>
+                                    <i class="fa fa-folder"></i><?= ucfirst($folder->title); ?>
+                                    <a href="?delete_folder_id=<?= $folder->id; ?>">
+                                        <i class="fa fa-trash-o remove delete-folder"></i>
+                                    </a>
+                                </li>
+                            </a>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -69,8 +75,8 @@
             </div>
         </div>
     </div>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script></script>
 
 </body>
 

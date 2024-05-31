@@ -319,3 +319,18 @@ body {
     border-radius: 7px;
     color: #242121;
 }
+
+.remove {
+    float: right;
+    color: red;
+    opacity: 0.7;
+}
+
+.remove:hover {
+    opacity: 1;
+}
+
+.folder {
+    text-decoration: none;
+    color: #555555;
+}

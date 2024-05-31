@@ -7,4 +7,6 @@ include "libs/lib-helper.php";
 include "libs/lib-db.php";
 
 // Connect to db
-connect($dbConfig);
+$conn = connect($dbConfig);
+
+include "libs/lib-folder.php";
