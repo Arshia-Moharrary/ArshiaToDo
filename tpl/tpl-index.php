@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <div id="result"></div>
     <div class="page">
         <div class="pageHeader">
             <div class="title">Dashboard</div>
@@ -14,17 +15,12 @@
         </div>
         <div class="main">
             <div class="nav">
-                <div class="searchbox">
-                    <div><i class="fa fa-search"></i>
-                        <input type="search" placeholder="Search" />
-                    </div>
-                </div>
                 <div class="menu">
                     <div class="title">Folders</div>
-                    <ul>
+                    <ul id="folders">
                         <?php foreach ($folders as $folder) : ?>
                             <a href='?folder_id=<?= $folder->id ?>' class="folder">
-                            <li>
+                                <li>
                                     <i class="fa fa-folder"></i><?= ucfirst($folder->title); ?>
                                     <a href="?delete_folder_id=<?= $folder->id; ?>">
                                         <i class="fa fa-trash-o remove delete-folder"></i>
@@ -33,6 +29,8 @@
                             </a>
                         <?php endforeach; ?>
                     </ul>
+                    <input type="text" id="addFolderTitle" placeholder="Add new folder">
+                    <button id="addFolder"><i class="fa fa-plus"></i></button>
                 </div>
             </div>
             <div class="view">
@@ -76,7 +74,6 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script></script>
 
 </body>
 
