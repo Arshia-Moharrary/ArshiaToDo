@@ -30,7 +30,7 @@
                         <?php endforeach; ?>
                     </ul>
                     <input type="text" id="addFolderTitle" placeholder="Add new folder">
-                    <button id="addFolder"><i class="fa fa-plus"></i></button>
+                    <button id="addFolder" class="clickable"><i class="fa fa-plus"></i></button>
                 </div>
             </div>
             <div class="view">
@@ -74,6 +74,15 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(
+            function () {
+                $(".close").click(function () {
+                    $(this).parent().fadeOut(150);
+                })
+            }
+        )
+    </script>
 
 </body>
 
