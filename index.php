@@ -4,14 +4,8 @@ include "bootstrap/init.php";
 
 // Delete operation
 if (isset($_GET["delete_folder_id"])) {
-    function sanitize_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
     
-    $id = sanitize_input($_GET["delete_folder_id"]);
+    $id = sanitizeInput($_GET["delete_folder_id"]);
     
     // Execute delete operation
     $result = removeFolder($id);
@@ -21,6 +15,6 @@ if (isset($_GET["delete_folder_id"])) {
     }
 }
 
-$folders = getFolder("current");
+$folders = getFolder(1);
 
 include "tpl/tpl-index.php";

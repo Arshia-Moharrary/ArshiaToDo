@@ -1,23 +1,14 @@
 <?php
 
 // Give folder
-function getFolder($user_id) {
-    global $conn;
-
-    // Specify user id
-    switch ($user_id) {
-        case "current":
-            $user_id = 1;
-            break;
-        default:
-            $user_id = $user_id;
-    }
+function getFolder($userID) {
+    global $conn; 
 
     // Insert operation
     try {
         $sql = "SELECT * FROM folders WHERE user_id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$user_id]);
+        $stmt->execute([$userID]);
         $folders = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         return $folders;
@@ -27,14 +18,14 @@ function getFolder($user_id) {
 }
 
 // Delete folder
-function removeFolder($folder_id) {
+function removeFolder($folderID) {
     global $conn;
 
     // Delete operation
     try {
         $sql = "DELETE FROM folders WHERE id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$folder_id]);
+        $stmt->execute([$folderID]);
         $count = $stmt->rowCount();
 
         // If the value of count is greater than one, it means that the folder has been deleted, true is returned, otherwise false is returned

@@ -1,12 +1,11 @@
 <?php
 
 include "constant.php";
-include "config.php";
-include "libs/lib-front.php";
-include "libs/lib-helper.php";
-include "libs/lib-db.php";
+include BASE_ROOT . "bootstrap/config.php";
+include BASE_ROOT . "libs/lib-helper.php";
+include BASE_ROOT . "libs/lib-db.php";
 
 // Connect to db
 $conn = connect($dbConfig);
 
-include "libs/lib-folder.php";
+include BASE_ROOT . "libs/lib-folder.php";

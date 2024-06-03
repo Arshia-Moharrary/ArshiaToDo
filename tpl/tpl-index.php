@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= WEB_TITLE ?></title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
 <body>
@@ -19,18 +20,14 @@
                     <div class="title">Folders</div>
                     <ul id="folders">
                         <?php foreach ($folders as $folder) : ?>
-                            <a href='?folder_id=<?= $folder->id ?>' class="folder">
-                                <li>
-                                    <i class="fa fa-folder"></i><?= ucfirst($folder->title); ?>
-                                    <a href="?delete_folder_id=<?= $folder->id; ?>">
-                                        <i class="fa fa-trash-o remove delete-folder"></i>
-                                    </a>
-                                </li>
-                            </a>
+                            <li>
+                                <i class="fa fa-folder"></i><?= ucfirst($folder->title); ?>
+                                <i class="fa fa-trash-o remove delete-folder" data-id="<?= $folder->id ?>" onclick="deleteFolder(this)"></i>
+                            </li>
                         <?php endforeach; ?>
                     </ul>
-                    <input type="text" id="addFolderTitle" placeholder="Add new folder">
-                    <button id="addFolder" class="clickable"><i class="fa fa-plus"></i></button>
+                    <input type="text" id="addFolderInput" placeholder="Add new folder">
+                    <button id="addFolderBtn" class="clickable"><i class="fa fa-plus"></i></button>
                 </div>
             </div>
             <div class="view">
@@ -74,15 +71,7 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(
-            function () {
-                $(".close").click(function () {
-                    $(this).parent().fadeOut(150);
-                })
-            }
-        )
-    </script>
+    <script src="<?= BASE_URL ?>assets/js/script.js"></script>
 
 </body>
 

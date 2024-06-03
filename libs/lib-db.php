@@ -8,6 +8,7 @@ function connect($config) {
         # success("Connection is successfully\n");
         return $conn;
     } catch (PDOException $e) {
-        dieError("Connection failed: {$e->getMessage()}");
+        echo '<link rel="stylesheet" href="' . BASE_URL . 'assets/css/style.css">';
+        dieError("Connection to the database failed: {$e->getMessage()}");
     }
 }
