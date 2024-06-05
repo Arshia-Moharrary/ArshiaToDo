@@ -43,3 +43,18 @@ $("#addFolderBtn").click(
         )
     }
 )
+
+$("#changeTaskMode").click(
+    function () {
+        
+        if ($(this).html() == "Completed") {
+            $(this).html("Not completed");
+            $("#notComplete").fadeOut(250);
+            $("#completed").fadeIn(1250);
+        } else {
+            $(this).html("Completed");
+            $("#completed").fadeOut(250);
+            $("#notComplete").fadeIn(1250);
+        }
+    }
+)

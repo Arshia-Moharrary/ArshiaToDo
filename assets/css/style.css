@@ -211,9 +211,9 @@ body {
 
 .main .view .viewHeader .functions .button.inverz {
     background-color: inherit;
-    border: 1px solid #AAA;
+    border: 1px solid red;
     width: 10px;
-    color: #AAA;
+    color: red;
     font-size: 1.3em;
     padding-left: 10px;
     padding-right: 16px;
@@ -250,7 +250,7 @@ body {
     border-top: 1px solid #AAA;
 }
 
-.main .view .content .list ul li.checked {
+.main .view .content .list ul li.selected {
     background-color: #F0F4F5;
 }
 
@@ -274,6 +274,7 @@ body {
 
 .main .view .content .list ul li .info {
     float: right;
+    margin-right: 10px;
 }
 
 .main .view .content .list ul li .info span {

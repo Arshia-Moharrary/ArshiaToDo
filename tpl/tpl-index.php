@@ -12,7 +12,7 @@
     <div class="page">
         <div class="pageHeader">
             <div class="title">Dashboard</div>
-            <div class="userPanel"><i class="fa fa-chevron-down"></i><span class="username">John Doe </span><img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg" width="40" height="40" /></div>
+            <div class="userPanel"><i class="fa fa-chevron-down"></i><span class="username">John Doe </span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4kzl1aQvIkyNVBzz8iu6xKcjROVMssdoTdg&s" width="40" height="40" /></div>
         </div>
         <div class="main">
             <div class="nav">
@@ -32,38 +32,37 @@
             </div>
             <div class="view">
                 <div class="viewHeader">
-                    <div class="title">Manage Tasks</div>
+                    <div class="title">Tasks</div>
                     <div class="functions">
                         <div class="button active">Add New Task</div>
-                        <div class="button">Completed</div>
+                        <div class="button" id="changeTaskMode">Completed</div>
                         <div class="button inverz"><i class="fa fa-trash-o"></i></div>
                     </div>
                 </div>
                 <div class="content">
-                    <div class="list">
-                        <div class="title">Today</div>
+                    <div class="list" id="notComplete">
+                        <div class="title">Not completed</div>
                         <ul>
-                            <li class="checked"><i class="fa fa-check-square-o"></i><span>Update team page</span>
-                                <div class="info">
-                                    <div class="button green">In progress</div><span>Complete by 25/04/2014</span>
-                                </div>
-                            </li>
-                            <li><i class="fa fa-square-o"></i><span>Design a new logo</span>
-                                <div class="info">
-                                    <div class="button">Pending</div><span>Complete by 10/04/2014</span>
-                                </div>
-                            </li>
-                            <li><i class="fa fa-square-o"></i><span>Find a front end developer</span>
-                                <div class="info"></div>
-                            </li>
+                            <!-- Undone tasks -->
+                            <?php foreach ($undoneTasks as $task) : ?>
+                                <li><i class="fa fa-square-o"></i><span><?= $task->title ?></span>
+                                    <div class="info">
+                                        <span>Created by <?= $task->created_at ?></span>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
-                    <div class="list">
-                        <div class="title">Tomorrow</div>
+                    <div class="list" id="completed" style="display: none;">
+                        <div class="title">Completed</div>
                         <ul>
-                            <li><i class="fa fa-square-o"></i><span>Find front end developer</span>
-                                <div class="info"></div>
-                            </li>
+                            <?php foreach ($doneTasks as $task) : ?>
+                                <li><i class="fa fa-check-square-o"></i><span><?= $task->title ?></span>
+                                    <div class="info">
+                                        <span>Completed by <?= $task->doned_at ?></span>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
