@@ -14,6 +14,8 @@ if (isset($_POST["action"]) && !empty($_POST["action"])) {
     echo "Action isn't set or empty";
 }
 
+/* Folder operations */
+
 // Add folder operation
 if ($action == "addFolder") {
     $title = sanitizeInput($_POST["title"]);
@@ -32,6 +34,18 @@ if ($action == "addFolder") {
 if ($action == "deleteFolder") {
     $id = sanitizeInput($_POST["id"]);
     if (removeFolder($id)) {
+        echo 1; /* 1 means true */
+    } else {
+        echo 0; /* 0 means false */
+    }
+}
+
+/* Task operations */
+
+// Delete task operation
+if ($action == "deleteTask") {
+    $id = sanitizeInput($_POST["id"]);
+    if (removeTask($id)) {
         echo 1; /* 1 means true */
     } else {
         echo 0; /* 0 means false */

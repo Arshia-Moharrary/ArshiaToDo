@@ -48,7 +48,7 @@
                         <ul>
                             <!-- Undone tasks -->
                             <?php foreach ($undoneTasks as $task) : ?>
-                                <li class="task"><i class="fa fa-square-o"></i><span><?= $task->title ?></span>
+                                <li class="task" data-id="<?= $task->id ?>"><i class="fa fa-square-o"></i><span><?= $task->title ?></span>
                                     <div class="info">
                                         <span>Created by <?= $task->created_at ?></span>
                                     </div>
@@ -60,7 +60,7 @@
                         <div class="title">Completed</div>
                         <ul>
                             <?php foreach ($doneTasks as $task) : ?>
-                                <li class="task"><i class="fa fa-check-square-o"></i><span><?= $task->title ?></span>
+                                <li class="task" data-id="<?= $task->id ?>"><i class="fa fa-check-square-o"></i><span><?= $task->title ?></span>
                                     <div class="info">
                                         <span>Completed by <?= $task->doned_at ?></span>
                                     </div>

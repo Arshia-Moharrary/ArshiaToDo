@@ -65,3 +65,25 @@ $(".task").click(
         $(this).addClass("selected");
     }
 )
+
+$(".delete-task").click(
+    function () {
+        let id = $(".selected").attr("data-id");
+        let task = $(".selected");
+        
+        $.ajax(
+            {
+                url:  BASE_URL + "process/ajaxHandler.php",
+                data: {action: "deleteTask", id: id},
+                method: "post",
+                success: function (response) {
+                    if (response == "1") {
+                        task.fadeOut(180);
+                    } else {
+                        alert("Couldn't delete your task");
+                    }
+                }
+            }
+        )
+    }
+)
