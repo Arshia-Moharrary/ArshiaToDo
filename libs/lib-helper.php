@@ -1,5 +1,8 @@
 <?php
 
+// Prevent direct access
+isset($access) OR die("Access denied 403");
+
 // Return a error message
 function error($message) {
     echo "<div class='danger'>" . $message . "<i class='fa fa-times close'></i></div>";

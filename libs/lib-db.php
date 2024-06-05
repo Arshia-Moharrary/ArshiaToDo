@@ -1,5 +1,8 @@
 <?php
 
+// Prevent direct access
+isset($access) OR die("Access denied 403");
+
 // Connect to database with pdo
 function connect($config) {
     try {

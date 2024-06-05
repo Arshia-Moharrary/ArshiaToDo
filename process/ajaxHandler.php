@@ -17,7 +17,7 @@ if (isset($_POST["action"]) && !empty($_POST["action"])) {
 // Add folder operation
 if ($action == "addFolder") {
     $title = sanitizeInput($_POST["title"]);
-    addFolder($title);
+    addFolder($title, 1);
 
     // Return response to the client
 

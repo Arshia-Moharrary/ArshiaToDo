@@ -1,5 +1,8 @@
 <?php
 
+// Prevent direct access
+isset($access) OR die("Access denied 403");
+
 // Give folder
 function getFolder($userID) {
     global $conn; 
@@ -40,14 +43,14 @@ function removeFolder($folderID) {
 }
 
 // Create folder
-function addFolder($title) {
+function addFolder($title, $userID) {
     global $conn;
 
     // Create operation
     try {
         $sql = "INSERT INTO folders (title, user_id) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$title, 1]);
+        $stmt->execute([$title, $userID]);
         $count = $stmt->rowCount();
 
         // If the value of count is greater than one, it means that the folder has been created, true is returned, otherwise false is returned
