@@ -49,12 +49,19 @@ $("#changeTaskMode").click(
         
         if ($(this).html() == "Completed") {
             $(this).html("Not completed");
-            $("#notComplete").fadeOut(250);
-            $("#completed").fadeIn(1250);
+            $("#notComplete").fadeOut(0);
+            $("#completed").fadeIn(0);
         } else {
             $(this).html("Completed");
-            $("#completed").fadeOut(250);
-            $("#notComplete").fadeIn(1250);
+            $("#completed").fadeOut(0);
+            $("#notComplete").fadeIn(0);
         }
+    }
+)
+
+$(".task").click(
+    function () {
+        $(".selected").removeClass("selected");
+        $(this).addClass("selected");
     }
 )

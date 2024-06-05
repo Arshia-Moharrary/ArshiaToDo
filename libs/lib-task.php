@@ -4,14 +4,14 @@
 isset($access) OR die("Access denied 403");
 
 // Give task
-function getTask($userID, bool $is_done) {
+function getTask($userID, $folderID, bool $is_done) {
     global $conn;
 
     // Select operation
     try {
-        $sql = "SELECT * FROM tasks WHERE user_id = ? AND is_done = ?";
+        $sql = "SELECT * FROM tasks WHERE user_id = ? AND is_done = ? AND folder_id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$userID, $is_done]);
+        $stmt->execute([$userID, $is_done, $folderID]);
         $tasks = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         return $tasks;

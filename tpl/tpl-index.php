@@ -21,7 +21,9 @@
                     <ul id="folders">
                         <?php foreach ($folders as $folder) : ?>
                             <li>
-                                <i class="fa fa-folder"></i><?= ucfirst($folder->title); ?>
+                                <a href="?folder=<?= $folder->id ?>" class="folder"><i class="fa fa-folder">
+                                    </i><?= ucfirst($folder->title); ?>
+                                </a>
                                 <i class="fa fa-trash-o remove delete-folder" data-id="<?= $folder->id ?>" onclick="deleteFolder(this)"></i>
                             </li>
                         <?php endforeach; ?>
@@ -32,11 +34,12 @@
             </div>
             <div class="view">
                 <div class="viewHeader">
+                    <?php if (isset($_GET["folder"])): ?>
                     <div class="title">Tasks</div>
                     <div class="functions">
                         <div class="button active">Add New Task</div>
                         <div class="button" id="changeTaskMode">Completed</div>
-                        <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+                        <div class="button inverz delete-task"><i class="fa fa-trash-o"></i></div>
                     </div>
                 </div>
                 <div class="content">
@@ -45,7 +48,7 @@
                         <ul>
                             <!-- Undone tasks -->
                             <?php foreach ($undoneTasks as $task) : ?>
-                                <li><i class="fa fa-square-o"></i><span><?= $task->title ?></span>
+                                <li class="task"><i class="fa fa-square-o"></i><span><?= $task->title ?></span>
                                     <div class="info">
                                         <span>Created by <?= $task->created_at ?></span>
                                     </div>
@@ -57,7 +60,7 @@
                         <div class="title">Completed</div>
                         <ul>
                             <?php foreach ($doneTasks as $task) : ?>
-                                <li><i class="fa fa-check-square-o"></i><span><?= $task->title ?></span>
+                                <li class="task"><i class="fa fa-check-square-o"></i><span><?= $task->title ?></span>
                                     <div class="info">
                                         <span>Completed by <?= $task->doned_at ?></span>
                                     </div>
@@ -65,6 +68,9 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
+                    <?php else: ?>
+                    <div class="title">Choose a folder</div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

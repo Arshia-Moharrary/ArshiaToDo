@@ -3,7 +3,11 @@
 include "bootstrap/init.php";
 
 $folders = getFolder(1);
-$undoneTasks = getTask(1, false);
-$doneTasks = getTask(1, true);
+
+if (isset($_GET["folder"])) {
+    $folder = sanitizeInput($_GET["folder"]);
+    $undoneTasks = getTask(1, $folder, false);
+    $doneTasks = getTask(1, $folder, true);
+}
 
 include "tpl/tpl-index.php";
