@@ -43,14 +43,14 @@ function removeTask($taskID) {
 }
 
 // Create task
-function addTask($title, $userID) {
+function addTask($title, $userID, $folderID) {
     global $conn;
 
     // Create operation
     try {
-        $sql = "INSERT INTO tasks (title, user_id) VALUES (?, ?)";
+        $sql = "INSERT INTO tasks (title, user_id, folder_id) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$title, $userID]);
+        $stmt->execute([$title, $userID, $folderID]);
         $count = $stmt->rowCount();
 
         // If the value of count is greater than one, it means that the task has been created, true is returned, otherwise false is returned

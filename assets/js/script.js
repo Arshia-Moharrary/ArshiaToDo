@@ -1,19 +1,19 @@
 const BASE_URL = "http://localhost:8000/";
 
 $(".close").click(
-function() {
-    $(this).parent().fadeOut(150);
-}
+    function () {
+        $(this).parent().fadeOut(150);
+    }
 )
 
 function deleteFolder(element) {
     let id = $(element).attr("data-id");
     let parent = $(element).parent();
-    
+
     $.ajax(
         {
-            url:  BASE_URL + "process/ajaxHandler.php",
-            data: {action: "deleteFolder", id: id},
+            url: BASE_URL + "process/ajaxHandler.php",
+            data: { action: "deleteFolder", id: id },
             method: "post",
             success: function (response) {
                 if (response == "1") {
@@ -33,7 +33,7 @@ $("#addFolderBtn").click(
         $.ajax(
             {
                 url: BASE_URL + "process/ajaxHandler.php",
-                data: {action: "addFolder", title: title.val()},
+                data: { action: "addFolder", title: title.val() },
                 method: "post",
                 success: function (response) {
                     $(response).appendTo("#folders");
@@ -46,7 +46,7 @@ $("#addFolderBtn").click(
 
 $("#changeTaskMode").click(
     function () {
-        
+
         if ($(this).html() == "Completed") {
             $(this).html("Not completed");
             $("#notComplete").fadeOut(0);
@@ -59,22 +59,21 @@ $("#changeTaskMode").click(
     }
 )
 
-$(".task").click(
-    function () {
-        $(".selected").removeClass("selected");
-        $(this).addClass("selected");
-    }
-)
+
+function selectTask(element) {
+    $(".selected").removeClass("selected");
+    $(element).addClass("selected");
+}
 
 $(".delete-task").click(
     function () {
         let id = $(".selected").attr("data-id");
         let task = $(".selected");
-        
+
         $.ajax(
             {
-                url:  BASE_URL + "process/ajaxHandler.php",
-                data: {action: "deleteTask", id: id},
+                url: BASE_URL + "process/ajaxHandler.php",
+                data: { action: "deleteTask", id: id },
                 method: "post",
                 success: function (response) {
                     if (response == "1") {
@@ -85,5 +84,37 @@ $(".delete-task").click(
                 }
             }
         )
+    }
+)
+
+$("#addTaskBtn").click(
+    function () {
+        Swal.fire({
+            title: "Submit task title",
+            input: "text",
+            inputAttributes: {
+                autocapitalize: "off"
+            },
+            showCancelButton: true,
+            confirmButtonText: "Add",
+            showLoaderOnConfirm: true,
+            preConfirm: function (title) {
+                // Get folder id of url
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const folder = urlParams.get('folder'); /* Folder id is here */
+
+                $.ajax(
+                    {
+                        url: BASE_URL + "process/ajaxHandler.php",
+                        data: { action: "addTask", title: title, folder: folder },
+                        method: "post",
+                        success: function (response) {
+                            $(response).appendTo("#tasks");
+                        }
+                    }
+                )
+            }
+        })
     }
 )

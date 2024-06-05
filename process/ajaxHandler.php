@@ -51,3 +51,18 @@ if ($action == "deleteTask") {
         echo 0; /* 0 means false */
     }
 }
+
+// Add task operation
+if ($action == "addTask") {
+    $title = sanitizeInput($_POST["title"]);
+    $folder = sanitizeInput($_POST["folder"]);
+    addTask($title, 1, $folder);
+
+    // Return response to the client
+
+    // Give folder info and build html tag
+    $result = getRecords("id, title, created_at", "tasks", "title", $title);
+    $task = $result[0];
+
+    echo "<li class='task' data-id='{$task->id}' onclick='selectTask(this)'><i class='fa fa-square-o'></i><span>{$task->title}</span><div class='info'><span>Created by {$task->created_at}</span></div></li>";
+}
