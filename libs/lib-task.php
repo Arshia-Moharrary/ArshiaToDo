@@ -69,7 +69,7 @@ function doneTask($taskID) {
     global $conn;
 
     try {
-        $sql = "UPDATE tasks SET is_done = 1 WHERE id = ?;";
+        $sql = "UPDATE tasks SET is_done = 1, doned_at = NOW() WHERE id = ?;";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$taskID]);
         $count = $stmt->rowCount();
@@ -90,7 +90,7 @@ function undoneTask($taskID) {
     global $conn;
 
     try {
-        $sql = "UPDATE tasks SET is_done = 0 WHERE id = ?;";
+        $sql = "UPDATE tasks SET is_done = 0, doned_at = NULL WHERE id = ?;";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$taskID]);
         $count = $stmt->rowCount();

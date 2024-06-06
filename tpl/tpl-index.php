@@ -46,7 +46,7 @@
                     <div class="list" id="notComplete">
                         <div class="title">Not completed</div>
                         <?php if ($undoneTasks) : ?>
-                            <ul id="tasks">
+                            <ul id="tasks" class="undone-tasks">
                                 <!-- Undone tasks -->
                                 <?php foreach ($undoneTasks as $task) : ?>
                                     <li class="task" data-id="<?= $task->id ?>" onclick="selectTask(this)">
@@ -65,7 +65,7 @@
                     <div class="list" id="completed" style="display: none;">
                         <div class="title">Completed</div>
                         <?php if ($doneTasks) : ?>
-                            <ul>
+                            <ul class="done-tasks">
                                 <?php foreach ($doneTasks as $task) : ?>
                                     <li class="task" data-id="<?= $task->id ?>" onclick="selectTask(this)"><i class="fa fa-check-square-o undone" onclick="undone(this)"></i><span><?= $task->title ?></span>
                                         <div class="info">
