@@ -11,7 +11,7 @@
     <div id="result"></div>
     <div class="page">
         <div class="pageHeader">
-            <div class="title">Dashboard</div>
+            <div class="title">ArshiaToDo</div>
             <div class="userPanel"><i class="fa fa-chevron-down"></i><span class="username">John Doe </span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4kzl1aQvIkyNVBzz8iu6xKcjROVMssdoTdg&s" width="40" height="40" /></div>
         </div>
         <div class="main">
