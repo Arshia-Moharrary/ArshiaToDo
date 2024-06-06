@@ -19,7 +19,11 @@ function deleteFolder(element) {
                 if (response == "1") {
                     parent.fadeOut(180);
                 } else {
-                    alert("Couldn't delete your folder");
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Couldn't delete your folder"
+                    });
                 }
             }
         }
@@ -79,7 +83,11 @@ $(".delete-task").click(
                     if (response == "1") {
                         task.fadeOut(180);
                     } else {
-                        alert("Couldn't delete your task");
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Couldn't delete your task"
+                        });
                     }
                 }
             }
@@ -118,3 +126,57 @@ $("#addTaskBtn").click(
         })
     }
 )
+
+function done(element) {
+    // Front
+    $(element).removeClass();
+    $(element).addClass("fa fa-check-square-o undone");
+    $(element).attr("onclick", "undone(this)");
+
+    // Send ajax request for done task
+    let id = $(element).parent().attr("data-id");
+
+    $.ajax(
+        {
+            url: BASE_URL + "process/ajaxHandler.php",
+            data: { action: "doneTask", id: id },
+            method: "post",
+            success: function (response) {
+                if (response == 0) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Task done operation failed"
+                    });
+                }
+            }
+        }
+    )
+}
+
+function undone(element) {
+    // Front
+    $(element).removeClass();
+    $(element).addClass("fa fa-square-o undone");
+    $(element).attr("onclick", "done(this)");
+
+    // Send ajax request for undone task
+    let id = $(element).parent().attr("data-id");
+
+    $.ajax(
+        {
+            url: BASE_URL + "process/ajaxHandler.php",
+            data: { action: "undoneTask", id: id },
+            method: "post",
+            success: function (response) {
+                if (response == 0) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Task undone operation failed"
+                    });
+                }
+            }
+        }
+    )
+}

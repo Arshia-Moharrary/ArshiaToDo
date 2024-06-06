@@ -63,3 +63,45 @@ function addTask($title, $userID, $folderID) {
         dieError("Failed to create task: {$e->getMessage()}");
     }
 }
+
+// Done task
+function doneTask($taskID) {
+    global $conn;
+
+    try {
+        $sql = "UPDATE tasks SET is_done = 1 WHERE id = ?;";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$taskID]);
+        $count = $stmt->rowCount();
+
+        // If the value of count is greater than one, it means that the task has been doned, true is returned, otherwise false is returned
+        if ($count) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        dieError("Failed to done task: {$e->getMessage()}");
+    }
+}
+
+// Undone task
+function undoneTask($taskID) {
+    global $conn;
+
+    try {
+        $sql = "UPDATE tasks SET is_done = 0 WHERE id = ?;";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$taskID]);
+        $count = $stmt->rowCount();
+
+        // If the value of count is greater than one, it means that the task has been undoned, true is returned, otherwise false is returned
+        if ($count) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        dieError("Failed to undone task: {$e->getMessage()}");
+    }
+}

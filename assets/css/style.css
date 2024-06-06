@@ -336,6 +336,11 @@ body {
     color: #555555;
 }
 
+.folder-active {
+    text-decoration: none;
+    color: #79BC46;
+}
+
 input {
     width: 70%;
     padding: 5px;
@@ -367,4 +372,12 @@ button:hover {
 
 .close:hover {
     opacity: 1;
+}
+
+.done {
+    cursor: pointer;
+}
+
+.undone {
+    cursor: pointer;
 }

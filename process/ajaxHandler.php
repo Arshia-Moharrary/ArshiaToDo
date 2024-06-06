@@ -27,7 +27,7 @@ if ($action == "addFolder") {
     $result = getRecords("id, title", "folders", "title", $title);
     $folder = $result[0];
 
-    echo "<li><i class='fa fa-folder'></i>" . ucfirst($folder->title) . "<i class='fa fa-trash-o remove delete-folder' data-id='{$folder->id}' onclick='deleteFolder(this)'></i></li>";
+    echo "<li> <a href='?folder={$folder->id}' class='folder'> <i class='fa fa-folder'></i>" . ucfirst($folder->title) . " </a> <i class='fa fa-trash-o remove delete-folder' data-id='{$folder->id}' onclick='deleteFolder(this)'></i> </li>";
 }
 
 // Delete folder operation
@@ -64,5 +64,29 @@ if ($action == "addTask") {
     $result = getRecords("id, title, created_at", "tasks", "title", $title);
     $task = $result[0];
 
-    echo "<li class='task' data-id='{$task->id}' onclick='selectTask(this)'><i class='fa fa-square-o'></i><span>{$task->title}</span><div class='info'><span>Created by {$task->created_at}</span></div></li>";
+    echo "<li class='task' data-id='{$task->id}' onclick='selectTask(this)'><i class='fa fa-square-o done' onclick='done(this)'></i><span>{$task->title}</span><div class='info'><span>Created by {$task->created_at}</span></div></li>";
+}
+
+// Done task operation
+if ($action == "doneTask") {
+    $id = sanitizeInput($_POST["id"]);
+
+    // Return response to the client
+    if (doneTask($id)) {
+        echo 1; /* 1 means true */
+    } else {
+        echo 0; /* 0 means false */
+    }
+}
+
+// Done task operation
+if ($action == "undoneTask") {
+    $id = sanitizeInput($_POST["id"]);
+
+    // Return response to the client
+    if (undoneTask($id)) {
+        echo 1; /* 1 means true */
+    } else {
+        echo 0; /* 0 means false */
+    }
 }

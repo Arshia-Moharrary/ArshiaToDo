@@ -21,8 +21,8 @@
                     <ul id="folders">
                         <?php foreach ($folders as $folder) : ?>
                             <li>
-                                <a href="?folder=<?= $folder->id ?>" class="folder"><i class="fa fa-folder">
-                                    </i><?= ucfirst($folder->title); ?>
+                                <a href="?folder=<?= $folder->id ?>" class="<?= (isset($_GET["folder"])) && ($folder->id) == $_GET["folder"] ? 'folder-active' : 'folder' ?>">
+                                    <i class="fa fa-folder"></i><?= ucfirst($folder->title); ?>
                                 </a>
                                 <i class="fa fa-trash-o remove delete-folder" data-id="<?= $folder->id ?>" onclick="deleteFolder(this)"></i>
                             </li>
@@ -34,43 +34,53 @@
             </div>
             <div class="view">
                 <div class="viewHeader">
-                    <?php if (isset($_GET["folder"])): ?>
-                    <div class="title">Tasks</div>
-                    <div class="functions">
-                        <div class="button active" id="addTaskBtn">Add New Task</div>
-                        <div class="button" id="changeTaskMode">Completed</div>
-                        <div class="button inverz delete-task"><i class="fa fa-trash-o"></i></div>
-                    </div>
+                    <?php if (isset($_GET["folder"])) : ?>
+                        <div class="title">Tasks</div>
+                        <div class="functions">
+                            <div class="button active" id="addTaskBtn">Add New Task</div>
+                            <div class="button" id="changeTaskMode">Completed</div>
+                            <div class="button inverz delete-task"><i class="fa fa-trash-o"></i></div>
+                        </div>
                 </div>
                 <div class="content">
                     <div class="list" id="notComplete">
                         <div class="title">Not completed</div>
-                        <ul id="tasks">
-                            <!-- Undone tasks -->
-                            <?php foreach ($undoneTasks as $task) : ?>
-                                <li class="task" data-id="<?= $task->id ?>" onclick="selectTask(this)"><i class="fa fa-square-o"></i><span><?= $task->title ?></span>
-                                    <div class="info">
-                                        <span>Created by <?= $task->created_at ?></span>
-                                    </div>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
+                        <?php if ($undoneTasks) : ?>
+                            <ul id="tasks">
+                                <!-- Undone tasks -->
+                                <?php foreach ($undoneTasks as $task) : ?>
+                                    <li class="task" data-id="<?= $task->id ?>" onclick="selectTask(this)">
+                                        <i class="fa fa-square-o done" onclick="done(this)"></i>
+                                        <span><?= $task->title ?></span>
+                                        <div class="info">
+                                            <span>Created by <?= $task->created_at ?></span>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php else : ?>
+                            <p style="margin-left: 12px; font-size: 22px; opacity: 0.7;">There is no task :)</p>
+                        <?php endif; ?>
                     </div>
                     <div class="list" id="completed" style="display: none;">
                         <div class="title">Completed</div>
-                        <ul>
-                            <?php foreach ($doneTasks as $task) : ?>
-                                <li class="task" data-id="<?= $task->id ?>" onclick="selectTask(this)"><i class="fa fa-check-square-o"></i><span><?= $task->title ?></span>
-                                    <div class="info">
-                                        <span>Completed by <?= $task->doned_at ?></span>
-                                    </div>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
+                        <?php if ($doneTasks) : ?>
+                            <ul>
+                                <?php foreach ($doneTasks as $task) : ?>
+                                    <li class="task" data-id="<?= $task->id ?>" onclick="selectTask(this)"><i class="fa fa-check-square-o undone" onclick="undone(this)"></i><span><?= $task->title ?></span>
+                                        <div class="info">
+                                            <span>Completed by <?= $task->doned_at ?></span>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php else : ?>
+                            <p style="margin-left: 12px; font-size: 22px; opacity: 0.7;">There is no task :)</p>
+                        <?php endif; ?>
                     </div>
-                    <?php else: ?>
+                <?php else : ?>
                     <div class="title">Choose a folder</div>
-                    <?php endif; ?>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
