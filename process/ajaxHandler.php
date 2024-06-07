@@ -4,7 +4,7 @@ include "../bootstrap/init.php";
 
 // Check request method and is ajax
 if (!(getRequestMethod() == "post" && isAjax())) {
-   echo dieError("Your request is invalid"); 
+    echo dieError("Your request is invalid");
 }
 
 // Check action is set
@@ -88,5 +88,34 @@ if ($action == "undoneTask") {
         echo 1; /* 1 means true */
     } else {
         echo 0; /* 0 means false */
+    }
+}
+
+/* User operations */
+
+// Register user
+if ($action == "registerUser") {
+    $firstName = sanitizeInput($_POST["firstName"]);
+    $lastName = sanitizeInput($_POST["lastName"]);
+    $email = sanitizeInput($_POST["email"]);
+    $password = sanitizeInput($_POST["password"]);
+
+    // Validation
+    $errors = validateRegister($firstName, $lastName, $email, $password);
+
+    if (count($errors)) {
+        foreach ($errors as $error) {
+            error($error);
+            echo "<br>";
+        }
+    } else {
+        $result = register($firstName, $lastName, $email, $password);
+
+        // Return response to the client
+        if ($result) {
+            echo 1; /* 1 means true */
+        } else {
+            echo 0; /* 0 means false */
+        }
     }
 }

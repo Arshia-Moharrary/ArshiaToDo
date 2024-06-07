@@ -1,10 +1,8 @@
 const BASE_URL = "http://localhost:8000/";
 
-$(".close").click(
-    function () {
-        $(this).parent().fadeOut(150);
-    }
-)
+function closeAlert(element) {
+    $(element).parent().remove();
+}
 
 function deleteFolder(element) {
     let id = $(element).attr("data-id");
@@ -180,3 +178,45 @@ function undone(element) {
         }
     )
 }
+
+$("#register").click(
+    function (e) {
+        e.preventDefault();
+
+        // Form data
+        let firstName = $("#firstName").val();
+        let lastName = $("#lastName").val();
+        let email = $("#email").val();
+        let password = $("#password").val();
+
+        $.ajax(
+            {
+                url: BASE_URL + "process/ajaxHandler.php",
+                data: { action: "registerUser", firstName: firstName, lastName: lastName, email: email, password: password },
+                method: "post",
+                success: function (response) {
+                    if (response == 1) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Register is successfully",
+                            confirmButtonText: "OK",
+                            showLoaderOnConfirm: true,
+                            preConfirm: function () {
+                                window.location.href = BASE_URL;
+                            }
+                        })
+                    } else if (response == 0) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Registration failed"
+                        });
+                    } else {
+                        $(".error").html("");
+                        $(response).appendTo(".error");
+                    }
+                }
+            }
+        )
+    }
+)

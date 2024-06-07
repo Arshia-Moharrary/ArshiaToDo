@@ -1,8 +1,5 @@
 <?php
 
-// Use session
-session_start();
-
 include "../bootstrap/init.php";
 
 // Include template

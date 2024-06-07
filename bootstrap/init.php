@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include "constant.php";
 include BASE_ROOT . "bootstrap/config.php";
 include BASE_ROOT . "libs/lib-helper.php";

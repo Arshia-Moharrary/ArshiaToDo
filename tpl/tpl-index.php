@@ -1,3 +1,4 @@
+<?= $_SESSION["user"]; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,7 +89,7 @@
                 <!-- Sign up form -->
                 <link rel="stylesheet" href="style.css">
                 <?php else : ?>
-                    <div class="text">Please <a href="<?= BASE_URL ?>auth/login.php" id="login">login</a> or <a href="<?= BASE_URL ?>auth/register.php" id="register">register</a> first</div>
+                    <div class="text">Please <a href="<?= BASE_URL ?>auth/login.php">login</a> or <a href="<?= BASE_URL ?>auth/register.php">register</a> first</div>
             <?php endif; ?>
             </div>
     </div>

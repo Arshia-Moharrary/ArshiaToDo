@@ -5,7 +5,7 @@ isset($access) OR die("Access denied 403");
 
 // Return a error message
 function error($message) {
-    echo "<div class='danger'>" . $message . "<i class='fa fa-times close'></i></div>";
+    echo "<div class='danger'>" . $message . "<i class='fa fa-times close' onclick='closeAlert(this)'></i></div>";
 }
 
 // Die and return a error message
@@ -16,7 +16,7 @@ function dieError($message) {
 
 // Return a success message
 function success($message) {
-    echo "<div class='success'>" . $message . "<i class='fa fa-times close'></i></div>";
+    echo "<div class='success'>" . $message . "<i class='fa fa-times close' onclick='close(this)'></i></div>";
 }
 
 // Sanitize input
