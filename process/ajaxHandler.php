@@ -119,3 +119,28 @@ if ($action == "registerUser") {
         }
     }
 }
+
+// Login user
+if ($action == "loginUser") {
+    $email = sanitizeInput($_POST["email"]);
+    $password = sanitizeInput($_POST["password"]);
+
+    // Validation
+    $errors = validateLogin($email, $password);
+
+    if (count($errors)) {
+        foreach ($errors as $error) {
+            error($error);
+            echo "<br>";
+        }
+    } else {
+        $result = login($email, $password);
+
+        // Return response to the client
+        if ($result) {
+            echo 1; /* 1 means true */
+        } else {
+            echo 0; /* 0 means false */
+        }
+    }
+}

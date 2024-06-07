@@ -1,8 +1,7 @@
 <?php
 
 // Check user is logged in or not
-function isLogged()
-{
+function isLogged() {
     if (isset($_SESSION["user"])) {
         return true; /* User is logged in */
     } else {
@@ -11,8 +10,7 @@ function isLogged()
 }
 
 // Register user
-function register($firstName, $lastName, $email, $password)
-{
+function register($firstName, $lastName, $email, $password) {
     global $conn;
 
     try {
@@ -33,9 +31,23 @@ function register($firstName, $lastName, $email, $password)
     }
 }
 
+// Login user
+function login($email) {
+    global $conn;
+
+    // Give user id
+    $user = getRecords("id", "users", "email", $email)[0];
+
+    // Set session
+    if ($_SESSION["user"] = $user->id) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // Validate user data (register)
-function validateRegister($firstName, $lastName, $email, $password)
-{
+function validateRegister($firstName, $lastName, $email, $password) {
     // Error container
     $errorMessage = [];
 
@@ -84,12 +96,12 @@ function validateRegister($firstName, $lastName, $email, $password)
         }
 
         // Email
-        if (strlen($lastName) > 256) {
+        if (strlen($email) > 256) {
             $errorMessage[] = "Your email is too large";
         }
 
         // Password
-        if (strlen($lastName) > 256) {
+        if (strlen($password) > 256) {
             $errorMessage[] = "Your password is too large";
         }
 
@@ -120,6 +132,73 @@ function validateRegister($firstName, $lastName, $email, $password)
         $dbEmail = getRecords("email", "users", "email", $email);
         if ($dbEmail) {
             $errorMessage[] = "Your email is exist (Please login)";
+        }
+    }
+
+    return $errorMessage;
+}
+
+function validateLogin($email, $password) {
+    // Error container
+    $errorMessage = [];
+
+    /* Empty validation */
+
+    // Continue to validation if input not empty
+    $continue = true;
+
+    if (empty($email) || empty($password)) {
+        $errorMessage[] = "Please enter all inputs (inputs can't be empty)";
+        $continue = false;
+    }
+
+    if ($continue) {
+        /* Content validation */
+
+        // Email
+        if (!(preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $email))) {
+            $errorMessage[] = "Your email is invalid";
+        }
+
+        // Password don't require
+
+        /* Length validation */
+
+        /* Large */
+
+        // Email
+        if (strlen($email) > 256) {
+            $errorMessage[] = "Your email is too large";
+        }
+
+        // Password
+        if (strlen($password) > 256) {
+            $errorMessage[] = "Your password is too large";
+        }
+
+        /* Small */
+        
+        // Email
+        if (strlen($email) < 8) {
+            $errorMessage[] = "Your email is too small";
+        }
+
+        // Password
+        if (strlen($password) < 8) {
+            $errorMessage[] = "Your password is too small";
+        }
+
+        /* Check password is correct and email is exist */
+
+        $dbEmail = getRecords("email", "users", "email", $email);
+        $dbPassword = getRecords("password", "users", "email", $email);
+
+        if (!($dbEmail)) {
+            $errorMessage[] = "Your password or email is incorrect";
+        } else {
+            if ($dbPassword[0]->password != $password) {
+                $errorMessage[] = "Your password or email is incorrect";
+            }
         }
     }
 

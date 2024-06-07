@@ -1,4 +1,3 @@
-<?= $_SESSION["user"]; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +5,6 @@
     <meta charset="UTF-8">
     <title><?= WEB_TITLE ?></title>
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/auth.css">
 </head>
 
 <body>

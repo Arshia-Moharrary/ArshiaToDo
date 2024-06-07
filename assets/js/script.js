@@ -220,3 +220,43 @@ $("#register").click(
         )
     }
 )
+
+$("#login").click(
+    function (e) {
+        e.preventDefault();
+
+        // Form data
+        let email = $("#email").val();
+        let password = $("#password").val();
+
+        $.ajax(
+            {
+                url: BASE_URL + "process/ajaxHandler.php",
+                data: { action: "loginUser", email: email, password: password },
+                method: "post",
+                success: function (response) {
+                    if (response == 1) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Login is successfully",
+                            confirmButtonText: "OK",
+                            showLoaderOnConfirm: true,
+                            preConfirm: function () {
+                                window.location.href = BASE_URL;
+                            }
+                        })
+                    } else if (response == 0) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Login failed"
+                        });
+                    } else {
+                        $(".error").html("");
+                        $(response).appendTo(".error");
+                    }
+                }
+            }
+        )
+    }
+)
