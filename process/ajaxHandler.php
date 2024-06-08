@@ -19,15 +19,12 @@ if (isset($_POST["action"]) && !empty($_POST["action"])) {
 // Add folder operation
 if ($action == "addFolder") {
     $title = sanitizeInput($_POST["title"]);
-    addFolder($title, 1);
+    $id = addFolder($title, $_SESSION["user"]);
 
     // Return response to the client
 
     // Give folder info and build html tag
-    $result = getRecords("id, title", "folders", "title", $title);
-    $folder = $result[0];
-
-    echo "<li> <a href='?folder={$folder->id}' class='folder'> <i class='fa fa-folder'></i>" . ucfirst($folder->title) . " </a> <i class='fa fa-trash-o remove delete-folder' data-id='{$folder->id}' onclick='deleteFolder(this)'></i> </li>";
+    echo "<li> <a href='?folder={$id}' class='folder'> <i class='fa fa-folder'></i>" . ucfirst($title) . " </a> <i class='fa fa-trash-o remove delete-folder' data-id='{$id}' onclick='deleteFolder(this)'></i> </li>";
 }
 
 // Delete folder operation
@@ -56,7 +53,7 @@ if ($action == "deleteTask") {
 if ($action == "addTask") {
     $title = sanitizeInput($_POST["title"]);
     $folder = sanitizeInput($_POST["folder"]);
-    addTask($title, 1, $folder);
+    addTask($title, $_SESSION["user"], $folder);
 
     // Return response to the client
 
@@ -143,4 +140,9 @@ if ($action == "loginUser") {
             echo 0; /* 0 means false */
         }
     }
+}
+
+// Logout user
+if ($action == "logoutUser") {
+    session_destroy();
 }

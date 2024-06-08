@@ -2,19 +2,23 @@
 
 include "bootstrap/init.php";
 
-$folders = getFolder(1);
-
-if (isset($_GET["folder"])) {
-    $folder = sanitizeInput($_GET["folder"]);
-    $undoneTasks = getTask(1, $folder, false);
-    $doneTasks = getTask(1, $folder, true);
-}
 
 // Check user is logged in
 if (!(isLogged())) {
     $user = false;
 } else {
-    $user = true;
+    $user = getRecords("*", "users", "id", $_SESSION["user"])[0];
 }
+
+if ($user) {
+    $folders = getFolder($_SESSION["user"]);
+
+    if (isset($_GET["folder"])) {
+        $folder = sanitizeInput($_GET["folder"]);
+        $undoneTasks = getTask($_SESSION["user"], $folder, false);
+        $doneTasks = getTask($_SESSION["user"], $folder, true);
+    }
+}
+
 
 include "tpl/tpl-index.php";

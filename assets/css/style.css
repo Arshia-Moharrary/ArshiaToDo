@@ -10,7 +10,7 @@ body {
     margin: 0px;
     font-family: "Open Sans";
     font-size: 14px;
-    font-smoothing: antialiased;
+    font-smooth: antialiased;
 }
 
 .page {
@@ -63,7 +63,6 @@ body {
 .pageHeader .userPanel .username {
     float: right;
     line-height: 40px;
-    padding: 0px 20px;
     font-weight: 600;
     font-size: 1.0em;
 }
@@ -386,4 +385,15 @@ button:hover {
     text-align: center;
     margin-top: 20px;
     font-size: 23px;
+}
+
+.logout {
+    color: red;
+    cursor: pointer;
+    font-size: 25px;
+    opacity: 0.5;
+}
+
+.logout:hover {
+    opacity: 1;
 }

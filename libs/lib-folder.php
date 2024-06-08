@@ -23,8 +23,9 @@ function getFolder($userID) {
 // Delete folder
 function removeFolder($folderID) {
     global $conn;
+    $result = false;
 
-    // Delete operation
+    // Delete folder operation
     try {
         $sql = "DELETE FROM folders WHERE id = ?";
         $stmt = $conn->prepare($sql);
@@ -33,13 +34,26 @@ function removeFolder($folderID) {
 
         // If the value of count is greater than one, it means that the folder has been deleted, true is returned, otherwise false is returned
         if ($count) {
-            return true;
+            $result = true;
         } else {
-            return false;
+            $result = false;
         }
     } catch (PDOException $e) {
         dieError("Failed to delete folder: {$e->getMessage()}");
     }
+
+    // Delete related tasks operation
+    try {
+        $sql = "DELETE FROM tasks WHERE folder_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$folderID]);
+        $count = $stmt->rowCount();
+
+    } catch (PDOException $e) {
+        dieError("Failed to delete related tasks: {$e->getMessage()}");
+    }
+
+    return $result;
 }
 
 // Create folder
@@ -51,14 +65,9 @@ function addFolder($title, $userID) {
         $sql = "INSERT INTO folders (title, user_id) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$title, $userID]);
-        $count = $stmt->rowCount();
+        $id = $conn->lastInsertId();
 
-        // If the value of count is greater than one, it means that the folder has been created, true is returned, otherwise false is returned
-        if ($count) {
-            return true;
-        } else {
-            return false;
-        }
+        return $id;
     } catch (PDOException $e) {
         dieError("Failed to create folder: {$e->getMessage()}");
     }

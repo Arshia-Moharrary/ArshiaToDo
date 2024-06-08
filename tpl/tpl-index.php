@@ -12,7 +12,9 @@
     <div class="page">
         <div class="pageHeader">
             <div class="title">ArshiaToDo</div>
-            <div class="userPanel"><i class="fa fa-chevron-down"></i><span class="username">John Doe </span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4kzl1aQvIkyNVBzz8iu6xKcjROVMssdoTdg&s" width="40" height="40" /></div>
+            <?php if ($user) : ?>
+                <div class="userPanel"><span class="username"><?= $user->first_name . " " . $user->last_name ?></span><i class="fa fa-sign-out logout"></i></div>
+            <?php endif; ?>
         </div>
         <?php if ($user) : ?>
             <div class="main">
@@ -46,8 +48,8 @@
                     <div class="content">
                         <div class="list" id="notComplete">
                             <div class="title">Not completed</div>
-                            <?php if ($undoneTasks) : ?>
-                                <ul id="tasks" class="undone-tasks">
+                            <ul id="tasks" class="undone-tasks">
+                                <?php if ($undoneTasks) : ?>
                                     <!-- Undone tasks -->
                                     <?php foreach ($undoneTasks as $task) : ?>
                                         <li class="task" data-id="<?= $task->id ?>" onclick="selectTask(this)">
@@ -58,15 +60,15 @@
                                             </div>
                                         </li>
                                     <?php endforeach; ?>
-                                </ul>
-                            <?php else : ?>
-                                <p style="margin-left: 12px; font-size: 22px; opacity: 0.7;">There is no task :)</p>
-                            <?php endif; ?>
+                                <?php else : ?>
+                                    <p class="text not-task">There is no task :)</p>
+                                <?php endif; ?>
+                            </ul>
                         </div>
                         <div class="list" id="completed" style="display: none;">
                             <div class="title">Completed</div>
-                            <?php if ($doneTasks) : ?>
-                                <ul class="done-tasks">
+                            <ul class="done-tasks">
+                                <?php if ($doneTasks) : ?>
                                     <?php foreach ($doneTasks as $task) : ?>
                                         <li class="task" data-id="<?= $task->id ?>" onclick="selectTask(this)"><i class="fa fa-check-square-o undone" onclick="undone(this)"></i><span><?= $task->title ?></span>
                                             <div class="info">
@@ -74,10 +76,10 @@
                                             </div>
                                         </li>
                                     <?php endforeach; ?>
-                                </ul>
-                            <?php else : ?>
-                                <p style="margin-left: 12px; font-size: 22px; opacity: 0.7;">There is no task :)</p>
-                            <?php endif; ?>
+                                <?php else : ?>
+                                    <p class="text not-task">There is no task :)</p>
+                                <?php endif; ?>
+                            </ul>
                         </div>
                     <?php else : ?>
                         <div class="title">Choose a folder</div>
@@ -86,8 +88,8 @@
                 </div>
                 <!-- Sign up form -->
                 <link rel="stylesheet" href="style.css">
-                <?php else : ?>
-                    <div class="text">Please <a href="<?= BASE_URL ?>auth/login.php">login</a> or <a href="<?= BASE_URL ?>auth/register.php">register</a> first</div>
+            <?php else : ?>
+                <div class="text">Please <a href="<?= BASE_URL ?>auth/login.php">login</a> or <a href="<?= BASE_URL ?>auth/register.php">register</a> first</div>
             <?php endif; ?>
             </div>
     </div>

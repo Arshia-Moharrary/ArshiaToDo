@@ -72,24 +72,32 @@ $(".delete-task").click(
         let id = $(".selected").attr("data-id");
         let task = $(".selected");
 
-        $.ajax(
-            {
-                url: BASE_URL + "process/ajaxHandler.php",
-                data: { action: "deleteTask", id: id },
-                method: "post",
-                success: function (response) {
-                    if (response == "1") {
-                        task.fadeOut(180);
-                    } else {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "Couldn't delete your task"
-                        });
+        if (task.length >= 1) {
+            $.ajax(
+                {
+                    url: BASE_URL + "process/ajaxHandler.php",
+                    data: { action: "deleteTask", id: id },
+                    method: "post",
+                    success: function (response) {
+                        if (response == "1") {
+                            task.fadeOut(180);
+                        } else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Couldn't delete your task"
+                            });
+                        }
                     }
                 }
-            }
-        )
+            )
+        } else {
+            Swal.fire({
+                icon: "info",
+                title: "Select task",
+                text: "First select a task for delete"
+            });
+        }
     }
 )
 
@@ -117,6 +125,7 @@ $("#addTaskBtn").click(
                         method: "post",
                         success: function (response) {
                             $(response).appendTo("#tasks");
+                            $(".not-task").remove();
                         }
                     }
                 )
@@ -258,5 +267,32 @@ $("#login").click(
                 }
             }
         )
+    }
+)
+
+$(".logout").click(
+    function () {
+        Swal.fire({
+            title: "Logout",
+            text: "Are you sure logout of your account?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#6e7881",
+            confirmButtonText: "Yes, logout!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax(
+                    {
+                        url: BASE_URL + "process/ajaxHandler.php",
+                        data: { action: "logoutUser" },
+                        method: "post",
+                        success: function () {
+                            window.location.href = BASE_URL;
+                        }
+                    }
+                )
+            }
+        });
     }
 )
