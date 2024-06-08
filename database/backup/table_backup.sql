@@ -58,8 +58,8 @@ CREATE TABLE `tasks` (
 
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
-  `first_name` varchar(128) NOT NULL,
-  `last_name` varchar(128) NOT NULL,
+  `first_name` varchar(36) NOT NULL,
+  `last_name` varchar(36) NOT NULL,
   `password` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
