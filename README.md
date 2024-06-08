@@ -13,6 +13,7 @@ This project is a simple Task Manager created with plain PHP. With this applicat
 
 ## Table of Contents
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -24,6 +25,12 @@ This project is a simple Task Manager created with plain PHP. With this applicat
 - Create, edit, and delete folders
 - Create, edit, and delete tasks
 - Organize tasks by folder
+
+## Screenshots
+
+![login page](assets/media/image/screenshot1.png)
+![dashboard page](assets/media/image/screenshot2.png)
+![add task](assets/media/image/screenshot3.png)
 
 ## Installation
 
@@ -80,6 +87,7 @@ For any questions or suggestions, you can contact me at:
 
 ## فهرست مطالب
 - [ویژگی‌ها](#ویژگی-ها)
+- [تصاویر](#تصاویر)
 - [نصب و راه اندازی](#نصب-و-راه-اندازی)
 - [استفاده](#استفاده)
 - [مشارکت](#مشارکت)
@@ -92,6 +100,10 @@ For any questions or suggestions, you can contact me at:
 - ایجاد، ویرایش و حذف تسک‌ها
 - مرتب‌سازی تسک‌ها بر اساس فولدر
 
+## تصاویر
+![صغحه ورود](assets/media/image/screenshot1.png)
+![صفحه داشبورد](assets/media/image/screenshot2.png)
+![ایجاد تسک](assets/media/image/screenshot3.png)
 ## نصب و راه اندازی
 
 1. پروژه را کلون کنید:
