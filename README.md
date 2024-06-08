@@ -1,4 +1,4 @@
-Language | زبان
+## Language | زبان
 - [English](#english)
 - [فارسی](#فارسی)
 
