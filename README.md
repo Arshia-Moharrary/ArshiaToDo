@@ -1,68 +1,23 @@
-## Languages | زبان ها
-
-[english](#user-content-english)
-
----
-
-# مدیریت تسک ها | Task Manager
-یک Task Manager ساده با PHP خام برای مدیریت وظایف<br>
-این پروژه یک Task Manager ساده است که با PHP خام ساخته شده است. با استفاده از این برنامه، کاربران می‌توانند حساب کاربری بسازند، وارد حساب خود شوند، فولدر ایجاد کنند و وظایف خود را مدیریت کنند.
-## ویژگی‌ها
-- ثبت‌نام و ورود کاربران
-- ایجاد، ویرایش و حذف فولدرها
-- ایجاد، ویرایش و حذف تسک‌ها
-- مرتب‌سازی تسک‌ها بر اساس فولدر
-- ## نصب و راه‌اندازی
-
-1. پروژه را کلون کنید:
-    ```sh
-    git clone https://github.com/Arshia-Moharrary/ArshiaToDo.git
-    ```
-
-2. وارد دایرکتوری پروژه شوید:
-    ```sh
-    cd ArshiaToDo
-    ```
-
-3. فایل پایگاه داده را تنظیم کنید:
-    - یک پایگاه داده جدید ایجاد کنید (ترجیحاً MySQL)
-    -  فایل import.sql را در پوشه database را در پایگاه داده خود import کنید
-    - فایل `config.php` را با اطلاعات پایگاه داده خود به‌روزرسانی کنید
-
-4. سرور محلی خود را راه‌اندازی کنید:
-    - از یک سرور محلی مانند XAMPP یا WAMP استفاده کنید
-    - سرور apache و mysql یا هر دیتابیسی که استفاده میکنید را استارت کنید
-    - دایرکتوری پروژه را در فولدر `htdocs` (برای XAMPP) یا `www` (برای WAMP) قرار دهید
-
-5. به مرورگر خود بروید و آدرس `http://localhost/ArshiaTo` را وارد کنید.
-## استفاده
-
-1. وارد حساب کاربری خود شوید یا یک حساب جدید بسازید.
-2. در صفحه اصلی، فولدر جدید ایجاد کنید.
-3. در داخل هر فولدر، تسک‌های خود را اضافه کنید و مدیریت کنید.
-
-## مشارکت
-
-اگر مایل به مشارکت در این پروژه هستید، لطفاً یک فورک از پروژه بگیرید و تغییرات خود را اعمال کنید. سپس یک Pull Request ارسال کنید. ممنون از کمک شما!
-## لایسنس
-
-این پروژه تحت لایسنس MIT منتشر شده است. برای اطلاعات بیشتر فایل [LICENSE](LICENSE) را ببینید.
-
-## اطلاعات تماس
-
-برای هر گونه سؤال یا پیشنهاد، می‌توانید با من تماس بگیرید:
-- ایمیل: arshia.moharrary@gmail.com
-- گیت‌هاب: [Arshia-Moharrary](https://github.com/Arshia-Moharrary)
-
-مطمئناً! این نسخه انگلیسی README برای پروژه Task Manager شما است:
+Language | زبان
+- [English](#english)
+- [فارسی](#فارسی)
 
 ---
+### English
+---
 
-<div id="english">s</div>
 # Task Manager
 A simple Task Manager built with plain PHP for managing tasks.
 
 This project is a simple Task Manager created with plain PHP. With this application, users can create an account, log in, create folders, and manage their tasks within these folders.
+
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Features
 - User registration and login
@@ -113,3 +68,72 @@ This project is licensed under the MIT License. For more information, see the [L
 For any questions or suggestions, you can contact me at:
 - Email: arshia.moharrary@gmail.com
 - GitHub: [Arshia-Moharrary](https://github.com/Arshia-Moharrary)
+
+---
+### فارسی
+---
+
+# مدیریت تسک ها | Task Manager
+یک Task Manager ساده با PHP خام برای مدیریت وظایف
+
+این پروژه یک Task Manager ساده است که با PHP خام ساخته شده است. با استفاده از این برنامه، کاربران می‌توانند حساب کاربری بسازند، وارد حساب خود شوند، فولدر ایجاد کنند و وظایف خود را مدیریت کنند.
+
+## فهرست مطالب
+- [ویژگی‌ها](#ویژگی‌ها)
+- [نصب و راه‌اندازی](#نصب-و-راه‌اندازی)
+- [استفاده](#استفاده)
+- [مشارکت](#مشارکت)
+- [لایسنس](#لایسنس)
+- [اطلاعات تماس](#اطلاعات-تماس)
+
+## ویژگی‌ها
+- ثبت‌نام و ورود کاربران
+- ایجاد، ویرایش و حذف فولدرها
+- ایجاد، ویرایش و حذف تسک‌ها
+- مرتب‌سازی تسک‌ها بر اساس فولدر
+
+## نصب و راه‌اندازی
+
+1. پروژه را کلون کنید:
+    ```sh
+    git clone https://github.com/Arshia-Moharrary/ArshiaToDo.git
+    ```
+
+2. وارد دایرکتوری پروژه شوید:
+    ```sh
+    cd ArshiaToDo
+    ```
+
+3. فایل پایگاه داده را تنظیم کنید:
+    - یک پایگاه داده جدید ایجاد کنید (ترجیحاً MySQL)
+    - فایل import.sql را در پوشه database را در پایگاه داده خود import کنید
+    - فایل `config.php` را با اطلاعات پایگاه داده خود به‌روزرسانی کنید
+
+4. سرور محلی خود را راه‌اندازی کنید:
+    - از یک سرور محلی مانند XAMPP یا WAMP استفاده کنید
+    - سرور apache و mysql یا هر دیتابیسی که استفاده میکنید را استارت کنید
+    - دایرکتوری پروژه را در فولدر `htdocs` (برای XAMPP) یا `www` (برای WAMP) قرار دهید
+
+5. به مرورگر خود بروید و آدرس `http://localhost/ArshiaTo` را وارد کنید.
+
+## استفاده
+
+1. وارد حساب کاربری خود شوید یا یک حساب جدید بسازید.
+2. در صفحه اصلی، فولدر جدید ایجاد کنید.
+3. در داخل هر فولدر، تسک‌های خود را اضافه کنید و مدیریت کنید.
+
+## مشارکت
+
+اگر مایل به مشارکت در این پروژه هستید، لطفاً یک فورک از پروژه بگیرید و تغییرات خود را اعمال کنید. سپس یک Pull Request ارسال کنید. ممنون از کمک شما!
+
+## لایسنس
+
+این پروژه تحت لایسنس MIT منتشر شده است. برای اطلاعات بیشتر فایل [LICENSE](LICENSE) را ببینید.
+
+## اطلاعات تماس
+
+برای هر گونه سؤال یا پیشنهاد، می‌توانید با من تماس بگیرید:
+- ایمیل: arshia.moharrary@gmail.com
+- گیت‌هاب: [Arshia-Moharrary](https://github.com/Arshia-Moharrary)
+
+---
