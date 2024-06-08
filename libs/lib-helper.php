@@ -71,3 +71,8 @@ function getRecords($requestedColumn, $table, $searchedColumn, $value) {
         echo "Couldn't find id: {$e->getMessage()}";
     }
 }
+
+// Redirect
+function redirect($url) {
+    header("Location: {$url}");
+}

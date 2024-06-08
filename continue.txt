@@ -1,1 +1,3 @@
-درست کردن بستن ارور ها
+edit folder name
+edit task name
+edit account info

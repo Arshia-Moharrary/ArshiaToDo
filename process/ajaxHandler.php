@@ -92,6 +92,12 @@ if ($action == "undoneTask") {
 
 // Register user
 if ($action == "registerUser") {
+    // Check user is logged
+    if (isLogged()) {
+        echo "User is logged";
+        die();
+    }
+
     $firstName = sanitizeInput($_POST["firstName"]);
     $lastName = sanitizeInput($_POST["lastName"]);
     $email = sanitizeInput($_POST["email"]);
@@ -119,6 +125,12 @@ if ($action == "registerUser") {
 
 // Login user
 if ($action == "loginUser") {
+    // Check user is logged
+    if (isLogged()) {
+        echo "User is logged";
+        die();
+    }
+
     $email = sanitizeInput($_POST["email"]);
     $password = sanitizeInput($_POST["password"]);
 
