@@ -54,7 +54,7 @@ This project is a simple Task Manager created with plain PHP. With this applicat
     - Start the Apache server and MySQL or the database server you are using
     - Place the project directory in the `htdocs` folder (for XAMPP) or `www` folder (for WAMP)
 
-5. Open your browser and go to `http://localhost/ArshiaTo`.
+5. Open your browser and go to `http://localhost/ArshiaToDo`.
 
 ## Usage
 
@@ -126,7 +126,7 @@ For any questions or suggestions, you can contact me at:
     - سرور apache و mysql یا هر دیتابیسی که استفاده میکنید را استارت کنید
     - دایرکتوری پروژه را در فولدر `htdocs` (برای XAMPP) یا `www` (برای WAMP) قرار دهید
 
-5. به مرورگر خود بروید و آدرس `http://localhost/ArshiaTo` را وارد کنید.
+5. به مرورگر خود بروید و آدرس `http://localhost/ArshiaToDo` را وارد کنید.
 
 ## استفاده
 
