@@ -1,5 +1,3 @@
-const BASE_URL = "http://localhost/ArshiaToDo/";
-
 function closeAlert(element) {
     $(element).parent().remove();
 }

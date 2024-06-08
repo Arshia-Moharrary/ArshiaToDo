@@ -102,6 +102,10 @@
 
     <!-- * Local * -->
     <script src="<?= BASE_URL ?>assets/js/script.js"></script>
+    <script>
+        /* Variables common to php and js */
+        const BASE_URL = "<?= BASE_URL ?>";
+    </script>
 
 </body>
 
