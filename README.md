@@ -1,3 +1,9 @@
+## Languages | زبان ها
+
+[english](#user-content-english)
+
+---
+
 # مدیریت تسک ها | Task Manager
 یک Task Manager ساده با PHP خام برای مدیریت وظایف<br>
 این پروژه یک Task Manager ساده است که با PHP خام ساخته شده است. با استفاده از این برنامه، کاربران می‌توانند حساب کاربری بسازند، وارد حساب خود شوند، فولدر ایجاد کنند و وظایف خود را مدیریت کنند.
@@ -48,4 +54,62 @@
 - ایمیل: arshia.moharrary@gmail.com
 - گیت‌هاب: [Arshia-Moharrary](https://github.com/Arshia-Moharrary)
 
+مطمئناً! این نسخه انگلیسی README برای پروژه Task Manager شما است:
 
+---
+
+<div id="english">s</div>
+# Task Manager
+A simple Task Manager built with plain PHP for managing tasks.
+
+This project is a simple Task Manager created with plain PHP. With this application, users can create an account, log in, create folders, and manage their tasks within these folders.
+
+## Features
+- User registration and login
+- Create, edit, and delete folders
+- Create, edit, and delete tasks
+- Organize tasks by folder
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/Arshia-Moharrary/ArshiaToDo.git
+    ```
+
+2. Navigate to the project directory:
+    ```sh
+    cd ArshiaToDo
+    ```
+
+3. Set up the database:
+    - Create a new database (preferably MySQL)
+    - Import the `import.sql` file located in the `database` folder into your database
+    - Update the `config.php` file with your database information
+
+4. Set up your local server:
+    - Use a local server like XAMPP or WAMP
+    - Start the Apache server and MySQL or the database server you are using
+    - Place the project directory in the `htdocs` folder (for XAMPP) or `www` folder (for WAMP)
+
+5. Open your browser and go to `http://localhost/ArshiaTo`.
+
+## Usage
+
+1. Log in to your account or create a new one.
+2. On the main page, create a new folder.
+3. Add and manage tasks within each folder.
+
+## Contributing
+
+If you would like to contribute to this project, please fork the repository and make your changes. Then, submit a pull request. Thank you for your help!
+
+## License
+
+This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
+
+## Contact
+
+For any questions or suggestions, you can contact me at:
+- Email: arshia.moharrary@gmail.com
+- GitHub: [Arshia-Moharrary](https://github.com/Arshia-Moharrary)
