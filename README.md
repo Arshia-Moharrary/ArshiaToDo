@@ -1,6 +1,6 @@
 ## Language | زبان
 - [English](#english)
-- [فارسی](#فارسی)
+- [پارسی](#پارسی)
 
 ---
 ### English
@@ -70,7 +70,7 @@ For any questions or suggestions, you can contact me at:
 - GitHub: [Arshia-Moharrary](https://github.com/Arshia-Moharrary)
 
 ---
-### فارسی
+### پارسی
 ---
 
 # مدیریت تسک ها | Task Manager
