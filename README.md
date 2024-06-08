@@ -140,7 +140,7 @@ For any questions or suggestions, you can contact me at:
 
 ## لایسنس
 
-این پروژه تحت لایسنس MIT منتشر شده است. برای اطلاعات بیشتر فایل [LICENSE](LICENSE) را ببینید.
+این پروژه تحت لایسنس MIT منتشر شده است. برای اطلاعات بیشتر فایل [LICENSE](?tab=MIT-1-ov-file) را ببینید.
 
 ## اطلاعات تماس
 
