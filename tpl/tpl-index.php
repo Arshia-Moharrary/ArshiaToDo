@@ -11,7 +11,7 @@
     <div id="result"></div>
     <div class="page">
         <div class="pageHeader">
-            <div class="title">ArshiaToDo</div>
+            <div class="title"><?= PROJECT_NAME ?></div>
             <?php if ($user) : ?>
                 <div class="userPanel"><span class="username"><?= $user->first_name . " " . $user->last_name ?></span><i class="fa fa-sign-out logout"></i></div>
             <?php endif; ?>

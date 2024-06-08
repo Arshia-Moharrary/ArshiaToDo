@@ -10,5 +10,5 @@ $dbConfig = (object) [
     "port" => "3306",
     "username" => "root",
     "password" => "",
-    "databaseName" => "arshiatodo"
+    "databaseName" => "db1"
 ];
