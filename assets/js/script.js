@@ -2,7 +2,7 @@
 let rootName = window.location.pathname.split("/")[1];
 
 // Base url for file address
-const BASE_URL = window.location.origin + "/" + rootName;
+const BASE_URL = window.location.origin + "/" + rootName + "/";
 
 function closeAlert(element) {
     $(element).parent().remove();
