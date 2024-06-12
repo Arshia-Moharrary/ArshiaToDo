@@ -34,6 +34,10 @@
 
     <!-- * Local * -->
     <script src="<?= BASE_URL ?>assets/js/script.js"></script>
+    <script>
+        // Common variable between php and js
+        const BASE_URL = <?= BASE_URL ?>;
+    </script>
 </body>
 
 </html>
