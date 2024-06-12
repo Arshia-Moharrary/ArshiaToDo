@@ -13,10 +13,12 @@ function isLogged() {
 function register($firstName, $lastName, $email, $password) {
     global $conn;
 
+    $hashPassword = password_hash($password, PASSWORD_BCRYPT);
+
     try {
         $sql = "INSERT INTO users (first_name, last_name, password, email) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$firstName, $lastName, $password, $email]);
+        $stmt->execute([$firstName, $lastName, $hashPassword, $email]);
         $id = $conn->lastInsertId();
 
         // If the value of count is greater than one, it means that the task has been undoned, true is returned, otherwise false is returned
@@ -196,7 +198,7 @@ function validateLogin($email, $password) {
         if (!($dbEmail)) {
             $errorMessage[] = "Your password or email is incorrect";
         } else {
-            if ($dbPassword[0]->password != $password) {
+            if (!(password_verify($password, $dbPassword[0]->password))) {
                 $errorMessage[] = "Your password or email is incorrect";
             }
         }
