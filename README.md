@@ -127,7 +127,7 @@ For any questions or suggestions, you can contact me at:
     - دایرکتوری پروژه را در فولدر `htdocs` (برای XAMPP) یا `www` (برای WAMP) قرار دهید
 
 5. به مرورگر خود بروید و آدرس `http://localhost/ArshiaToDo` را وارد کنید.
-6. 
+
 ## استفاده
 1. وارد حساب کاربری خود شوید یا یک حساب جدید بسازید.
 2. در صفحه اصلی، فولدر جدید ایجاد کنید.
