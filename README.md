@@ -56,9 +56,6 @@ This project is a simple Task Manager created with plain PHP. With this applicat
 
 5. Open your browser and go to `http://localhost/ArshiaToDo`.
 
-| :exclamation: If you change the name of the root folder, you must also change the constant value of PROJECT_NAME in the constant.php file |
-|-----------------------------------------|
-
 ## Usage
 
 1. Log in to your account or create a new one.
@@ -130,9 +127,7 @@ For any questions or suggestions, you can contact me at:
     - دایرکتوری پروژه را در فولدر `htdocs` (برای XAMPP) یا `www` (برای WAMP) قرار دهید
 
 5. به مرورگر خود بروید و آدرس `http://localhost/ArshiaToDo` را وارد کنید.
-
-| :exclamation: را هم تغییر دهید constant.php را در فایل PROJECT_NAME اگر نام فولدر ریشه را تغییر دادید باید مقدار ثابت |
-|-----------------------------------------|
+6. 
 ## استفاده
 1. وارد حساب کاربری خود شوید یا یک حساب جدید بسازید.
 2. در صفحه اصلی، فولدر جدید ایجاد کنید.
